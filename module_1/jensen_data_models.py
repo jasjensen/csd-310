@@ -13,9 +13,9 @@
     ]
 "Birthdate": [
         {
-"day": "30",
-              "month": "January"
-"year": "2001"
+            "day": "30",
+            "month": "January",
+            "year": "2001"
         }
     ]
     "Dependents": [
