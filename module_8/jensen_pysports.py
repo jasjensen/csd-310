@@ -1,28 +1,31 @@
 import mysql.connector
+from mysql.connector import errorcode
 
-# Connect to the database
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="",
-    database="pysports"
-)
 
-# Create a cursor
-cursor = db.cursor()
+config = {
+    "user": "pysports_user",
+    "password": "MySQL8IsGreat!",
+    "host": "localhost",
+    "database": "pysports",
+    "raise_on_warnings": True
+}
 
-# Write the query
-query = "SELECT team_id, team_name, mascot FROM team"
+try:
+    db = mysql.connector.connect(**config)
 
-# Execute the query
-cursor.execute(query)
+    print("Database user {} connected to MySQL on host {} with database {}".format (config["user"], config["host"], config["database"]))
 
-# Iterate over the cursor
-for team in cursor:
-    print(team)
+    input("\n\n Press any key to continue...")
 
-# Close the cursor
-cursor.close()
+except mysql.connector.Error as err:
+    if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+        print("  The supplied username or password are invalid")
 
-# Close the database
-db.close()
+    elif err.errno == errorcode.ER_BAD_DB_ERROR:
+        print("  The specified database does not exist")
+
+    else:
+        print(err)
+
+finally:
+   db.close()
