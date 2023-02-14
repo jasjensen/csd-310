@@ -5,16 +5,13 @@ from mysql.connector import errorcode
 config = {
     "user": "pysports_user",
     "password": "MySQL8IsGreat!",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "database": "pysports",
     "raise_on_warnings": True
 }
 
 
 def show_players(cursor, title):
-    """ method to execute an inner join on the player and team table, 
-        iterate over the dataset and output the results to the terminal window.
-    """
 
     cursor.execute("SELECT player_id, first_name, last_name, team_name FROM player INNER JOIN team ON player.team_id = team.team_id")
 
@@ -51,11 +48,13 @@ try:
 
     cursor.execute(delete_player)
 
+    show_players(cursor, "DISPLAYING PLAYERS AFTER DELETE")
+    
     insert_player = ("INSERT player SET first_name = 'Smeagol', last_name = 'Shire Folk', team_id = '1'")
 
     cursor.execute(insert_player)
-
-    show_players(cursor, "DISPLAYING PLAYERS AFTER DELETE")
+    
+    show_players(cursor, "DISPLAYING PLAYERS AFTER INSERT")
 
     input("\n\n  Press any key to continue... ")
 
