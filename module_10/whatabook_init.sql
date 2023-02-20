@@ -1,13 +1,10 @@
 CREATE USER 'whatabook_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MySQL8IsGreat!';
 
--- grant all privileges to the whatabook database to user whatabook_user on localhost 
 GRANT ALL PRIVILEGES ON whatabook.* TO'whatabook_user'@'localhost';
 
--- drop contstraints if they exist
 ALTER TABLE wishlist DROP FOREIGN KEY fk_book;
 ALTER TABLE wishlist DROP FOREIGN KEY fk_user;
 
--- drop tables if they exist
 DROP TABLE IF EXISTS store;
 DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS wishlist;
