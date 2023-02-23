@@ -1,5 +1,5 @@
 Select query to view a users wishlist items 
-*/
+
 SELECT user.user_id, user.first_name, user.last_name, book.book_id, book.book_name, book.author
 FROM wishlist
     INNER JOIN user ON wishlist.user_id = user.user_id
