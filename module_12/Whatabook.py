@@ -5,7 +5,7 @@ from mysql.connector import errorcode
 config = {
     "user": "whatabook_user",
     "password": "MySQL8IsGreat!",
-    "host": "0.0.0.0",
+    "host": "localhost",
     "database": "whatabook",
     "raise_on_warnings": True
 }
