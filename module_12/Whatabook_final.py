@@ -113,13 +113,13 @@ def add_book_to_wishlist(_cursor, _user_id, _book_id):
 
 try:
 
-    db = mysql.connector.connect(**config) # connect to the WhatABook database 
+    db = mysql.connector.connect(**config) 
 
-    cursor = db.cursor() # cursor for MySQL queries
+    cursor = db.cursor() 
 
     print("\n  Welcome to the WhatABook Application! ")
 
-    user_selection = show_menu() # show the main menu 
+    user_selection = show_menu() 
 
     while user_selection != 4:
 
@@ -146,7 +146,7 @@ try:
 
                     add_book_to_wishlist(cursor, my_user_id, book_id)
 
-                    db.commit() # commit the changes to the database 
+                    db.commit()
 
                     print("\n        Book id: {} was added to your wishlist!".format(book_id))
  
