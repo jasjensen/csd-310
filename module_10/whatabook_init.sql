@@ -58,22 +58,22 @@ INSERT INTO book(book_name, author, details)
     VALUES('The Two Towers', 'J.R.Tolkien', "The second part of The Lord of The Rings");
 
 INSERT INTO book(book_name, author)
-    VALUES('The Hobbit or There and Back Again', 'J.R.Tolkien');
+    VALUES('The Hobbit or There and Back Again', 'J.R.Tolkien','But are they really?');
 
 INSERT INTO book(book_name, author)
-    VALUES('Dune: Deluxe Edition', 'Frank Herbert');
+    VALUES('Dune: Deluxe Edition', 'Frank Herbert', 'With a new Sandbox');
 
 INSERT INTO book(book_name, author)
-    VALUES("Charlotee's Web", 'E.B. White');
+    VALUES("Charlotee's Web", 'E.B. White','With Bacon');
 
 INSERT INTO book(book_name, author)
-    VALUES('The Great Gatsby', 'F. Scott Fitzgerald');
+    VALUES('The Great Gatsby', 'F. Scott Fitzgerald', 'But is he really?');
 
 INSERT INTO book(book_name, author)
-    VALUES('The Lion, the Witch, and the Wardrobe', 'C.S. Lewis');
+    VALUES('The Lion, the Witch, and the Wardrobe', 'C.S. Lewis', 'Do not forget your boots');
 
 INSERT INTO book(book_name, author)
-    VALUES('The Catcher and the Rye', 'J.D. Salinger');
+    VALUES('The Catcher and the Rye', 'J.D. Salinger', 'With Mayo and Ham');
 
 
 INSERT INTO user(first_name, last_name) 
@@ -102,5 +102,3 @@ INSERT INTO wishlist(user_id, book_id)
     VALUES (
         (SELECT user_id FROM user WHERE first_name = 'Ferris'),
         (SELECT book_id FROM book WHERE book_name = 'The Return of the King')
-
-        
